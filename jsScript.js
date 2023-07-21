@@ -1,4 +1,14 @@
-function getComputerChoice() {
+
+
+
+
+
+
+
+let counter = 0;
+   
+function game() {
+  function getComputerChoice() {
     rps = Math.floor(Math.random()* 3 + 1)
     if (rps == 1) {
         return ("rock")
@@ -9,20 +19,15 @@ function getComputerChoice() {
       else if (rps == 3) {
         return ("scissors")
       }
-}
+  }
+  
+  
+  
+  
+  function playRound(playerSelection, computerSelection) {
+    console.log(`computer chose:  ${computerSelection}`)
+    console.log(`player chose: ${playerSelection}`)  
 
-const playerSelection = "paper"
-const computerSelection = getComputerChoice()
-console.log(`computer chose:  ${computerSelection}`)
-console.log(`player chose: ${playerSelection}`)
-
-
-let counter = 1;
-console.log(playRound(playerSelection, computerSelection))
-
-
-function playRound(playerSelection, computerSelection) {
-    
     if (playerSelection === computerSelection) {
       counter++
       return "Its a draw"
@@ -54,9 +59,23 @@ function playRound(playerSelection, computerSelection) {
         return "The computer wins this round!"
       }
       }
-}   
-   
-  console.log(counter)
-   
-   
+  }   
+  
+  getComputerChoice()
+  
+  let playerSelection = prompt("Rock Paper Or scissors?").toLowerCase
+  let computerSelection = getComputerChoice()
+  
+  
+  console.log(playRound(playerSelection, computerSelection))
+  console.log(`You are on round: ${counter}`)
+}
+
+game()
+game()
+game()
+game()
+game()
+  
+
 
