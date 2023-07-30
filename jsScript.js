@@ -8,7 +8,8 @@ const divPlayerWs = document.querySelector('#playerWs')
 const divcompWs = document.querySelector('#compWs')
 const divGameWinnerPlayer = document.querySelector('#gameWinnerPlayer')
 const divGameWinnerComp = document.querySelector('#gameWinnerComp')
-
+const playerWL = document.querySelector('#playerWL')
+const compWL = document.querySelector('#compWL')
 buttonRock.addEventListener('click', () => {
   playerSelection = 'rock'
   game()
@@ -21,21 +22,6 @@ buttonScissors.addEventListener('click', () => {
   playerSelection = 'scissors'
   game()
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -63,8 +49,8 @@ function game() {
   
   
   function playRound(playerSelection, computerSelection) {
-    console.log(`computer chose:  ${computerSelection}`)
-    console.log(`player chose: ${playerSelection}`)  
+    playerWL.textContent = (`computer chose:  ${computerSelection}`)
+    compWL.textContent = (`player chose: ${playerSelection}`)  
     
     if (playerSelection === computerSelection) {
       counter++
@@ -110,8 +96,7 @@ function game() {
   }   
   
   
-  
- // let playerSelection = "rock"
+
   let computerSelection = getComputerChoice()
   playerSelection = playerSelection.toLowerCase()
   
@@ -121,9 +106,12 @@ function game() {
   divPlayerWs.textContent = (`players wins = ${humanwins}`)
   divcompWs.textContent = (`computers wins = ${compwins}`)
   if (counter == 5 && compwins < humanwins) {
-    divGameWinnerPlayer.textContent = ("The player has won best out of 5!")}
+    divGameWinnerPlayer.textContent = ("The player has won best out of 5!") 
+    return 
+    }
   else if (counter == 5 && compwins > humanwins) {
     divGameWinnerComp.textContent = ("The computer has won best out of 5!")
+    return
     }
   
 
