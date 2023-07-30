@@ -2,7 +2,12 @@ const buttonRock = document.querySelector('#rock');
 const buttonPaper = document.querySelector('#paper');
 const buttonScissors = document.querySelector('#scissors');
 const body = document.querySelector('body')
-
+const divResults = document.querySelector('#result') 
+const divCount = document.querySelector('#rndCount')
+const divPlayerWs = document.querySelector('#playerWs')
+const divcompWs = document.querySelector('#compWs')
+const divGameWinnerPlayer = document.querySelector('#gameWinnerPlayer')
+const divGameWinnerComp = document.querySelector('#gameWinnerComp')
 
 buttonRock.addEventListener('click', () => {
   playerSelection = 'rock'
@@ -16,21 +21,6 @@ buttonScissors.addEventListener('click', () => {
   playerSelection = 'scissors'
   game()
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -111,6 +101,11 @@ function game() {
         compwins++
         return "The computer wins this round!"
       }
+      else {
+        humanwins++
+        counter++
+        return "You win this round!"
+      }
       }
   }   
   
@@ -120,18 +115,18 @@ function game() {
   let computerSelection = getComputerChoice()
   playerSelection = playerSelection.toLowerCase()
   
-  console.log(playRound(playerSelection, computerSelection))
-  console.log(`You are on round: ${counter}`)
+  divResults.textContent = (playRound(playerSelection, computerSelection))
+  rndCount.textContent = (`You are on round: ${counter}`)
   
-  console.log(`players wins = ${humanwins}`)
-  console.log(`computers wins = ${compwins}`)
+  divPlayerWs.textContent = (`players wins = ${humanwins}`)
+  divcompWs.textContent = (`computers wins = ${compwins}`)
   if (counter == 5 && compwins < humanwins) {
-    console.log("The player has won best out of 5!")}
+    divGameWinnerPlayer.textContent = ("The player has won best out of 5!")}
   else if (counter == 5 && compwins > humanwins) {
-    console.log("The computer has won best out of 5!")
+    divGameWinnerComp.textContent = ("The computer has won best out of 5!")
     }
   
-  
+
 }
 
 
